@@ -18,7 +18,7 @@ gpx.tracks.each do |t|
     # Skip calculations for the first point since there's no previous data
     if @prev_lat > 0
       # Get distance between current and previous point and convert to miles
-      d = Haversine.distance(p.lat, p.lon, @prev_lat, @prev_lon) * 0.6214
+      d = Haversine.distance(p.lat, p.lon, @prev_lat, @prev_lon).to_miles
       @distance += d
 
       if p.elevation > @prev_elevation
